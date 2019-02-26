@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: auto;
+}
+
+body{
+    background-color: burlywood;
+}
+
+form{
+    width: 40vw;
+    height: 30vh;
+    margin: 5vh auto;
+    align-content: center;
+}
+.students{
+    width: 100%;
+    height: 85%;
+}
+input{
+    width: 99%;
+    height: 100%;
+    margin: auto;
+    border: 1px solid gray;
+}
+
+.button{
+    height: 13%;
+    width: 100%;
+    margin-top: 1%;
+    border: 0px;
+}
+
+.surname-title, .mark-title, .grade-title{
+    font-style: italic;
+    text-align: center;
+    font-size: 150%;
+}

@@ -1,0 +1,172 @@
+<!--<%&#45;&#45;
+  Created by IntelliJ IDEA.
+  User: ASUS
+  Date: 11.02.2019
+  Time: 12:55
+  To change this template use File | Settings | File Templates.
+&#45;&#45;%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Students</title>
+    <!--<link rel="stylesheet" href="WEB-INF/style.css">-->
+    <style type="text/css">
+      *{
+        margin: 0;
+        padding: auto;
+      }
+
+      body{
+        background-color: burlywood;
+      }
+
+      form{
+        width: 40vw;
+        height: 30vh;
+        margin: 5vh auto;
+        align-content: center;
+      }
+      .students{
+        width: 100%;
+        height: 85%;
+      }
+      input{
+        width: 99%;
+        height: 100%;
+        margin: auto;
+        border: 1px solid gray;
+      }
+
+      .button{
+        height: 13%;
+        width: 100%;
+        margin-top: 1%;
+        border: 0px;
+      }
+
+      .surname-title, .mark-title, .grade-title{
+        font-style: italic;
+        text-align: center;
+        font-size: 150%;
+      }
+    </style>
+  </head>
+  <body>
+  <!--$END$-->
+  <!--<script src="WEB-INF/script.js"></script>-->
+  <script type="text/javascript">var emptyError = 0;
+  var illegalNumbersError = 0;
+  var illegalLetterError = 0;
+  function checkForm(){
+    emptyError = 0;
+    illegalNumbersError = 0;
+    illegalLetterError = 0;
+
+    var arrOfInputs = document.getElementsByTagName("input");
+    for(var i=0; i<arrOfInputs.length-1; i++){
+      arrOfInputs[i].style.border = "2px solid gray";
+      if(arrOfInputs[i].value==""){
+        arrOfInputs[i].style.border = "2px solid red";
+        emptyError++;
+      }
+      if(i%3==0){
+        if(/[0-9]/.test(arrOfInputs[i].value)) {
+          arrOfInputs[i].style.border = "2px solid red";
+          illegalNumbersError++;
+        }
+      }
+      if(i%3!=0){
+        if(isNaN(arrOfInputs[i].value)==true){
+          illegalLetterError++;
+          arrOfInputs[i].style.border = "2px solid red";
+        }
+      }
+    }
+    var errorAlert="";
+    if(emptyError>0){
+      errorAlert += "Some inputs are empty!";
+      errorAlert += "\n";
+    }
+    if(illegalLetterError>0){
+      errorAlert += "There are letters in 'Mark' or/and 'Grade' fields!";
+      errorAlert += "\n";
+    }
+    if(illegalNumbersError>0){
+      errorAlert += "There are numbers in 'Surname' field!";
+      errorAlert += "\n";
+    }
+
+    if(errorAlert!=""){
+      alert(errorAlert);
+      return false;
+    }
+    else return true;
+  }</script>
+  <form action = "hello" onsubmit = "return checkForm()">
+    <table border="1" class="students">
+      <tr>
+        <td class="surname-title">Surname</td>
+        <td class="mark-title">Mark</td>
+        <td class="grade-title">Grade</td>
+      </tr>
+      <tr>
+        <td class="surname">
+          <input type="text" name="surname0">
+        </td>
+        <td class="mark">
+          <input type="text" name="mark0">
+        </td>
+        <td class="grade">
+          <input type="text" name="grade0">
+        </td>
+      </tr>
+      <tr>
+        <td class="surname">
+          <input type="text" name="surname1">
+        </td>
+        <td class="mark">
+          <input type="text" name="mark1">
+        </td>
+        <td class="grade">
+          <input type="text" name="grade1">
+        </td>
+      </tr>
+      <tr>
+        <td class="surname">
+          <input type="text" name="surname2">
+        </td>
+        <td class="mark">
+          <input type="text" name="mark2">
+        </td>
+        <td class="grade">
+          <input type="text" name="grade2">
+        </td>
+      </tr>
+      <tr>
+        <td class="surname">
+          <input type="text" name="surname3">
+        </td>
+        <td class="mark">
+          <input type="text" name="mark3">
+        </td>
+        <td class="grade">
+          <input type="text" name="grade3">
+        </td>
+      </tr>
+      <tr>
+        <td class="surname">
+          <input type="text" name="surname4">
+        </td>
+        <td class="mark">
+          <input type="text" name="mark4">
+        </td>
+        <td class="grade">
+          <input type="text" name="grade4">
+        </td>
+      </tr>
+    </table>
+    <input type="submit" value="Submit" class="button">
+  </form>
+  </body>
+</html>
